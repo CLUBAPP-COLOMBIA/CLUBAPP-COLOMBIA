@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ClubApp — Formaliza tu club deportivo</title>
+<meta name="description" content="Formaliza tu club deportivo en Colombia: Kit de Formalización ($40.000) o Plan Profesional ($150.000).">
+<meta property="og:title" content="Kit de Formalización ClubApp">
+<meta property="og:description" content="Documentos editables para organizar la formalización de tu club deportivo en Colombia.">
+<meta property="og:type" content="product">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0B0C; --ink-soft:#3A3A3D; --paper:#FAF9F7; --paper-dim:#F0EFEC;
+  --line:#E4E2DD; --orange:#FF5A1F; --orange-dim:#FFE7DA; --white:#FFFFFF;
+  font-size:16px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--ink)}
+p{margin:0 0 1em;color:var(--ink-soft)}
+img{max-width:100%}
+.wrap{max-width:640px;margin:0 auto;padding:0 24px}
+section{padding:64px 0}
+.eyebrow{display:none}
+
+/* header */
+header.site{position:sticky;top:0;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(250,249,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:640px;margin:0 auto}
+.brand{font-family:'Space Grotesk';font-weight:700;font-size:1.1rem;color:var(--ink);text-decoration:none}
+.brand span{color:var(--orange)}
+.nav-cta{background:var(--ink);color:var(--white);border:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:.9rem;font-family:inherit;cursor:pointer}
+
+/* hero */
+.hero{padding:48px 0 40px}
+.hero h1{font-size:2.15rem;line-height:1.15;margin:0 0 16px}
+.hero .sub{font-size:1.05rem;color:var(--ink-soft);margin-bottom:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font-size:.82rem;background:var(--white);border:1px solid var(--line);padding:6px 12px;border-radius:20px;color:var(--ink-soft)}
+.price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:22px}
+.price{font-family:'Space Grotesk';font-size:2.6rem;font-weight:700;color:var(--ink)}
+.price-tag{font-size:.9rem;color:var(--ink-soft)}
+.cta-primary{display:inline-block;width:100%;text-align:center;background:var(--orange);color:var(--white);
+  font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;padding:17px 20px;border-radius:10px;border:none;
+  text-decoration:none;cursor:pointer;box-shadow:0 6px 18px rgba(255,90,31,.28)}
+.cta-secondary{display:block;text-align:center;margin-top:12px;color:var(--ink-soft);font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+
+/* document stack visual */
+.kit-visual{margin:36px 0 8px;position:relative;height:200px}
+.doc-card{position:absolute;left:50%;width:180px;height:140px;background:var(--white);border:1px solid var(--line);
+  border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.06);padding:16px}
+.doc-card .bar{height:6px;background:var(--paper-dim);border-radius:3px;margin-bottom:8px}
+.doc-card .bar.short{width:60%}
+.doc-card.d1{transform:translateX(-50%) rotate(-7deg);top:16px}
+.doc-card.d2{transform:translateX(-50%) rotate(4deg);top:8px;z-index:2}
+.doc-card.d3{transform:translateX(-50%) rotate(-1deg);top:0;z-index:3;border-color:var(--orange)}
+.doc-card.d3::after{content:"WORD";position:absolute;top:12px;right:12px;font-size:.65rem;font-family:'Space Grotesk';
+  color:var(--orange);font-weight:700;letter-spacing:.04em}
+
+/* problem */
+.problem-list{display:grid;gap:10px;margin:20px 0 24px}
+.problem-item{display:flex;gap:10px;align-items:flex-start;background:var(--white);border:1px solid var(--line);
+  border-radius:10px;padding:14px 16px;font-size:.95rem;color:var(--ink)}
+.problem-item .x{color:var(--orange);font-weight:700}
+
+/* included */
+.doc-list{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--white)}
+.doc-row{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:.95rem}
+.doc-row:last-child{border-bottom:none}
+.doc-num{font-family:'Space Grotesk';font-weight:700;color:var(--orange);font-size:.85rem;width:22px;flex:none}
+.extra-list{margin-top:18px;display:grid;gap:8px}
+.extra-item{display:flex;gap:10px;align-items:center;font-size:.95rem}
+.check{color:var(--orange);font-weight:700}
+
+/* steps */
+.steps{display:grid;gap:14px;margin-top:20px}
+.step{display:flex;gap:16px;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px}
+.step-num{font-family:'Space Grotesk';font-weight:700;font-size:1.3rem;color:var(--orange);flex:none;width:34px}
+.step h3{font-size:1rem;margin:0 0 4px}
+.step p{margin:0;font-size:.92rem}
+
+/* for whom */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.who-item{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:.9rem;text-align:left}
+
+/* compare */
+.compare{display:grid;gap:14px;margin-top:20px}
+.plan{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--white)}
+.plan.pro{border-color:var(--ink);background:var(--ink);color:var(--white)}
+.plan h3{font-family:'Space Grotesk';font-size:1.15rem;margin:0 0 2px}
+.plan.pro h3{color:var(--white)}
+.plan .p-price{font-family:'Space Grotesk';font-size:1.5rem;font-weight:700;margin-bottom:12px}
+.plan ul{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px;font-size:.9rem}
+.plan.pro p{color:#D8D8D6}
+.plan-cta{display:inline-block;width:100%;text-align:center;padding:12px;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;border:1px solid var(--ink);color:var(--ink)}
+.plan.pro .plan-cta{border-color:var(--white);color:var(--white)}
+
+/* transparency */
+.notice{background:var(--paper-dim);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:8px;padding:20px 20px;margin-top:16px}
+.notice p{font-size:.92rem;margin-bottom:10px}
+.notice p:last-child{margin-bottom:0}
+
+/* price block */
+.price-card{background:var(--ink);color:var(--white);border-radius:18px;padding:34px 26px;text-align:center;margin-top:8px}
+.price-card .p-name{font-family:'Space Grotesk';font-size:1rem;color:#C9C9C7;margin-bottom:6px}
+.price-card .p-big{font-family:'Space Grotesk';font-size:3rem;font-weight:700;margin-bottom:4px}
+.price-card .p-once{font-size:.85rem;color:#C9C9C7;margin-bottom:18px}
+.price-card ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:8px;text-align:left;max-width:260px;margin-inline:auto;font-size:.92rem}
+.price-card .cta-primary{box-shadow:none}
+.price-card .foot{font-size:.8rem;color:#9C9C99;margin-top:12px}
+
+/* faq */
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 4px;font-family:'Space Grotesk';font-weight:600;
+  font-size:.98rem;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q .plus{font-size:1.3rem;color:var(--orange);transition:transform .2s ease;flex:none}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-a p{padding:0 4px 18px;font-size:.92rem;margin:0}
+
+/* final cta */
+.final{text-align:center;background:var(--paper-dim);border-radius:18px;padding:44px 26px}
+.final h2{font-size:1.6rem;margin-bottom:6px}
+.final .lead{font-size:1rem;margin-bottom:20px}
+
+/* whatsapp float */
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;
+  background:#1E1E1E;color:var(--white);border-radius:30px;padding:12px 18px;display:flex;align-items:center;gap:8px;
+  text-decoration:none;font-size:.85rem;font-weight:600;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.wa-float svg{width:18px;height:18px}
+
+/* sticky mobile bar */
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--white);border-top:1px solid var(--line);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:none;align-items:center;justify-content:space-between;gap:12px}
+.sticky-bar .sb-price{font-family:'Space Grotesk';font-weight:700;font-size:1.05rem}
+.sticky-bar button{background:var(--orange);color:var(--white);border:none;padding:12px 18px;border-radius:8px;font-weight:600;font-family:inherit}
+
+footer{padding:32px 24px 100px;text-align:center;font-size:.8rem;color:#9C9C99}
+
+@media (min-width:720px){
+  .wrap{max-width:880px}
+  .hero{padding:72px 0 56px}
+  .hero h1{font-size:2.8rem}
+  .who-grid{grid-template-columns:1fr 1fr 1fr}
+  .compare{grid-template-columns:1fr 1fr}
+  .cta-primary{width:auto;padding:17px 40px}
+}
+@media (max-width:719px){ .sticky-bar{display:flex} body{padding-bottom:78px} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto!important} }
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121212; --paper-dim:#1A1A1A; --ink:#F5F4F2; --ink-soft:#B4B3B0; --line:#2A2A2A; --white:#1E1E1E;
+  }
+  :root:not([data-theme="light"]) header.site{background:rgba(18,18,18,.9)}
+  :root:not([data-theme="light"]) .nav-cta{background:var(--orange)}
+}
+:root[data-theme="dark"]{
+  --paper:#121212; --paper-dim:#1A1A1A; --ink:#F5F4F2; --ink-soft:#B4B3B0; --line:#2A2A2A; --white:#1E1E1E;
+}
+
+/* modal datos */
+.modal{position:fixed;inset:0;background:rgba(11,11,12,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:var(--white);border-radius:14px;padding:26px 22px;width:100%;max-width:400px}
+.modal-box h3{margin:0 0 6px;font-size:1.25rem}
+.modal-box label{display:block;font-size:.85rem;font-weight:600;margin:12px 0 4px;color:var(--ink)}
+.modal-box input{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.modal-box .cta-primary{margin-top:18px}
+.modal-close{display:block;margin:12px auto 0;background:none;border:none;color:var(--ink-soft);text-decoration:underline;cursor:pointer;font:inherit;font-size:.9rem}
+.datos{max-width:640px;margin:14px auto 0;text-align:left;font-size:.8rem}.datos summary{cursor:pointer;text-decoration:underline}.datos p{margin:8px 0 0}.thanks{display:none;background:#E3F5EE;color:#0B5B41;padding:14px 24px;text-align:center;font-weight:600;font-size:.95rem}.modal-err{color:#B42318;font-size:.85rem;margin-top:8px;display:none}
+:root{--soft:var(--ink-soft);--dim:var(--paper-dim);--ok:#12805C}
+.view{display:none}.view.active{display:block}
+.nav{flex-wrap:wrap;gap:8px 16px}
+.menu{display:flex;gap:16px;overflow-x:auto;max-width:100%}
+.menu a{color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:.86rem;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+.menu a.active{color:var(--ink);border-color:var(--orange)}
+.svc{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;margin:14px 0}
+.svc.pro{background:var(--ink);border-color:var(--ink)}
+.svc h2{font-size:1.2rem;margin:0 0 2px}.svc.pro h2{color:var(--white)}
+.svc .tag{font-size:.85rem;color:var(--orange);font-weight:700;margin-bottom:8px}
+.svc .pp{font-family:'Space Grotesk';font-size:1.7rem;font-weight:700;margin:6px 0 10px}.svc.pro .pp{color:var(--white)}
+.svc.pro p{color:#D8D8D6}
+.cta-light{display:block;text-align:center;background:var(--white);color:var(--ink);font-family:'Space Grotesk';font-weight:600;padding:15px;border-radius:10px;text-decoration:none}
+.page{padding-top:36px;padding-bottom:36px}
+.page h1{font-size:1.9rem;margin:0 0 12px}
+body:not(.route-kit) .sticky-bar{display:none!important}
+body:not(.route-kit){padding-bottom:0!important}
+.pv h1,.pv h2,.pv h3{font-family:'Space Grotesk',system-ui,sans-serif;margin:0;letter-spacing:-.01em}
+.pv .hero h1{font-size:2rem;line-height:1.15;margin-bottom:12px}
+.pv .price{font-family:'Space Grotesk';font-size:2rem;font-weight:700}
+.pv .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;margin:14px 0}
+.pv .card.locked{opacity:.45;pointer-events:none}
+.pv .card.done{border-color:var(--ok)}
+.pv .card h2{font-size:1.1rem;display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.pv .num{background:var(--orange);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;flex:none}
+.pv .card.done .num{background:var(--ok)}
+.pv label{display:block;font-size:.85rem;font-weight:600;margin:12px 0 4px}
+.pv input[type=text],.pv input[type=tel],.pv input[type=email]{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.pv .chk{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;font-weight:400;margin-top:14px;color:var(--soft)}
+.pv .chk input{margin-top:4px}
+.pv .btn{display:block;width:100%;text-align:center;background:var(--orange);color:#fff;font-family:'Space Grotesk';font-weight:600;font-size:1rem;padding:15px;border:none;border-radius:10px;text-decoration:none;cursor:pointer;margin-top:14px}
+.pv .btn.alt{background:var(--ink)}
+.pv .btn.ghost{background:var(--dim);color:var(--ink)}
+.pv .err{color:#B42318;font-size:.85rem;margin-top:8px;display:none}
+.pv .msg{margin-top:12px;font-size:.92rem;padding:12px;border-radius:8px;background:var(--dim);display:none}
+.pv .msg.ok{background:#E3F5EE;color:#0B5B41}
+.pv .note{font-size:.82rem;color:var(--soft)}</style>
+</head>
+<body>
+<div class="thanks" id="thanks-kit">¡Gracias por tu compra! Recibirás tu kit en tu WhatsApp o correo una vez confirmemos el pago.</div>
+<div class="thanks" id="thanks-plan">¡Pago recibido! Tu documento llegará en 24 horas. Puedes consultarlo en Mi documento.</div>
+<header class="site"><div class="nav">
+  <a class="brand" href="index.html">Club<span>App</span></a>
+  <nav class="menu"><a href="index.html" data-r="inicio">Inicio</a><a href="kit.html" data-r="kit">Kit</a><a href="plan-profesional.html" data-r="plan">Plan Profesional</a><a href="mi-documento.html" data-r="documento">Mi documento</a></nav>
+</div></header>
+
+<div class="view active" id="v-inicio"><main class="wrap page">
+  <h1>Tu equipo deportivo puede convertirse en un club formal</h1>
+  <p>Organizamos la documentación para formalizar tu club deportivo y avanzar hacia el Reconocimiento Deportivo en Colombia. Elige cómo prefieres hacerlo.</p>
+  <div class="svc"><h2>Kit de Formalización</h2><div class="tag">Tú lo diligencias</div>
+    <p>Documentos editables en Word, guía de diligenciamiento y lista de chequeo para organizar tu club por tu cuenta.</p>
+    <div class="pp">$40.000 <span style="font-size:.85rem;font-weight:500">COP</span></div>
+    <a class="cta-primary" href="kit.html">Ver el Kit</a></div>
+  <div class="svc pro"><h2>Plan Profesional</h2><div class="tag">Nosotros lo diligenciamos</div>
+    <p>Llenas un formulario con los datos de tu club, pagas y en 24 horas recibes tus documentos diligenciados.</p>
+    <div class="pp">$150.000 <span style="font-size:.85rem;font-weight:500">COP</span></div>
+    <a class="cta-light" href="plan-profesional.html">Ver el Plan Profesional</a></div>
+  <p class="note" style="font-size:.82rem;margin-top:22px">ClubApp prepara, organiza y diligencia tus formatos; no crea jurídicamente el club ni realiza el trámite final ante el instituto de deportes. Verifica siempre los requisitos vigentes de tu instituto municipal.</p>
+</main></div>
+
+
+
+
+
+
+
+
+
+<footer>© ClubApp — Tumaco, Nariño, Colombia. Herramienta de apoyo documental; no garantiza el Reconocimiento Deportivo.<div class="datos"><a href="datos.html" style="color:inherit">Tratamiento de datos personales</a></div></footer>
+<a class="wa-float" id="whatsapp" href="https://wa.me/57#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1s-.7.9-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg>
+  ¿Tienes dudas? Escríbenos
+</a>
+<div class="sticky-bar">
+  <span class="sb-price">$40.000 COP</span>
+  <button onclick="location.href='#comprar'">Comprar mi kit</button>
+</div>
+<div class="modal" id="buy-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <h3 id="modal-title">¿A dónde te enviamos el kit?</h3>
+    <p style="margin:0;font-size:.92rem">Déjanos tus datos y continúa al pago.</p>
+    <label for="f-nombre">Nombre</label><input id="f-nombre" autocomplete="name">
+    <label for="f-wa">WhatsApp</label><input id="f-wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="300 000 0000">
+    <label for="f-mail">Correo</label><input id="f-mail" type="email" autocomplete="email">
+    <label style="display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:.8rem;margin-top:14px"><input type="checkbox" id="f-auth" style="width:auto;margin-top:3px"> Autorizo el tratamiento de mis datos para recibir el kit y ser contactado por ClubApp.</label>
+    <div class="modal-err" id="f-err">Completa nombre, WhatsApp, un correo válido y acepta la autorización.</div>
+    <button class="cta-primary" id="f-go">Continuar al pago</button>
+    <button class="modal-close" id="f-close">Cancelar</button>
+  </div>
+</div>
+
+<script>
+
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.faq-item');
+    var answer = item.querySelector('.faq-a');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){
+      if(o!==item){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; }
+    });
+    if(isOpen){ item.classList.remove('open'); answer.style.maxHeight=null; }
+    else{ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight+'px'; }
+  });
+});
+
+/* ===== CONFIGURACIÓN: edita solo estas líneas ===== */
+var CONFIG = {
+  WHATSAPP_LINK: 'https://wa.me/message/RUYFYZ6YTHNQH1',
+  FORM_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSfWG5aEpYMIDKafHs392dmv8P0ssLrKaTaHPsIJ2rrDKrGnaA/viewform', // formulario del Plan (alimenta Autocrat)
+  PAYMENT_LINK_KIT: '',   // link de pago del Kit. URL de retorno en la pasarela: tu-dominio/kit.html?pago=ok
+  PAYMENT_LINK_PLAN: '',  // link de pago del Plan. URL de retorno: tu-dominio/plan-profesional.html?pago=ok
+  FORM_ENDPOINT: '',      // opcional: Apps Script/Formspree para guardar los datos de compradores
+  DOWNLOAD_ENDPOINT: '',  // Apps Script que responde {estado:'listo'|'pendiente', url:'...'} según ?correo=
+  META_PIXEL_ID: '',      // opcional
+  GA_ID: ''               // opcional (G-XXXXXXXXXX)
+};
+var DUMMY = document.createElement('div');
+var $ = function(id){ return document.getElementById(id) || DUMMY; }; // ids ausentes en esta página no rompen nada
+function track(name, params){
+  try{ if(window.fbq) fbq('trackCustom', name, params||{}); }catch(e){}
+  try{ if(window.gtag) gtag('event', name, params||{}); }catch(e){}
+}
+var KEY = 'clubapp_plan_pro';
+var state = {step:1, mail:''};
+try{ var sv = JSON.parse(localStorage.getItem(KEY)||'null'); if(sv && sv.step) state = sv; }catch(e){}
+function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+/* ===== Router por hash: #/  #/kit  #/plan  #/documento  #/datos ===== */
+var ROUTES = {'':'inicio','/':'inicio','/inicio':'inicio','/kit':'kit','/plan':'plan','/documento':'documento','/datos':'datos'};
+var TITLES = {inicio:'ClubApp — Formaliza tu club deportivo',kit:'Kit de Formalización ClubApp — $40.000 COP',plan:'Plan Profesional ClubApp — $150.000 COP',documento:'Mi documento — ClubApp',datos:'Tratamiento de datos — ClubApp'};
+var PAGE_NAME = 'inicio';
+var current = '';
+
+function show(name){
+  if(name===current) return;
+  current = name;
+  document.querySelectorAll('.view').forEach(function(v){ v.classList.toggle('active', v.id==='v-'+name); });
+  document.querySelectorAll('.menu a').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-r')===name); });
+  document.body.classList.toggle('route-kit', name==='kit');
+  document.title = TITLES[name];
+  window.scrollTo(0,0);
+  if(name==='documento' && state.mail){ $('q-mail').value = state.mail; }
+  if(/[?&]pago=ok/.test(location.search)){
+    if(name==='kit'){ $('thanks-kit').style.display='block'; track('Purchase',{producto:'Kit'}); }
+    if(name==='plan'){ state.step=4; persist(); renderPlan(); $('thanks-plan').style.display='block'; track('Purchase',{producto:'Plan'}); }
+  }
+  if(name==='kit') track('ViewContent',{producto:'Kit'});
+  if(name==='plan') track('ViewContent',{producto:'Plan'});
+}
+function route(){
+  var h = location.hash.replace(/^#/,'');
+  if(h==='top'){ window.scrollTo(0,0); return; }
+  if(h.charAt(0)==='/' || h===''){ show(ROUTES[h]||'inicio'); return; }
+  var el = $(h);                       // ancla interna, ej. #comprar
+  if(el){ var v = el.closest('.view'); if(v) show(v.id.slice(2)); el.scrollIntoView(); }
+}
+
+/* ===== WhatsApp ===== */
+$('whatsapp').href = CONFIG.WHATSAPP_LINK;
+$('whatsapp').addEventListener('click', function(){ track('WhatsAppClick'); });
+document.querySelectorAll('.plan-cta,.cta-primary,.cta-light').forEach(function(a){
+  a.addEventListener('click', function(){ track('ClickCTA'); });
+});
+
+/* ===== Compra del Kit: datos -> pago ===== */
+var modal = $('buy-modal');
+$('buy-btn').addEventListener('click', function(e){
+  e.preventDefault(); track('InitiateCheckout',{producto:'Kit'}); modal.classList.add('open'); $('f-nombre').focus();
+});
+$('f-close').addEventListener('click', function(){ modal.classList.remove('open'); });
+$('f-go').addEventListener('click', function(){
+  var n=$('f-nombre').value.trim(), w=$('f-wa').value.trim(), m=$('f-mail').value.trim(), err=$('f-err');
+  if(!n || w.replace(/\D/g,'').length<7 || !/^\S+@\S+\.\S+$/.test(m) || !$('f-auth').checked){ err.style.display='block'; return; }
+  err.style.display='none';
+  var data={nombre:n, whatsapp:w, correo:m, producto:'Kit de Formalización ClubApp', fecha:new Date().toISOString()};
+  if(CONFIG.FORM_ENDPOINT){ try{ fetch(CONFIG.FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)}); }catch(e){} }
+  if(CONFIG.PAYMENT_LINK_KIT){
+    setTimeout(function(){ window.location.href = CONFIG.PAYMENT_LINK_KIT; }, 250);
+  }else{
+    var msg='Hola ClubApp, quiero comprar el Kit de Formalización. Soy '+n+', correo: '+m+', WhatsApp: '+w+'. KIT';
+    try{ navigator.clipboard.writeText(msg); }catch(e){}
+    alert('Se abrirá WhatsApp. Si el mensaje no aparece escrito, pégalo en el chat (ya quedó copiado):\n\n'+msg);
+    window.open(CONFIG.WHATSAPP_LINK, '_blank');
+    modal.classList.remove('open');
+  }
+});
+
+/* ===== Plan Profesional: 4 pasos ===== */
+$('open-form').href = CONFIG.FORM_URL;
+$('pay').href = CONFIG.PAYMENT_LINK_PLAN || CONFIG.WHATSAPP_LINK;
+function renderPlan(){
+  [1,2,3,4].forEach(function(n){
+    var c=$('s'+n); c.classList.toggle('locked', n>state.step); c.classList.toggle('done', n<state.step);
+  });
+}
+function go(n){ state.step=n; persist(); renderPlan(); var el=$('s'+n); if(el && el.scrollIntoView) el.scrollIntoView({behavior:'smooth',block:'center'}); }
+$('b1').addEventListener('click', function(){
+  var n=$('nombre').value.trim(), w=$('wa').value.trim(), m=$('mail').value.trim(), c=$('club').value.trim();
+  if(!n || !c || w.replace(/\D/g,'').length<7 || !/^\S+@\S+\.\S+$/.test(m) || !$('auth').checked){ $('e1').style.display='block'; return; }
+  $('e1').style.display='none'; state.mail=m; persist(); track('InitiateCheckout',{producto:'Plan'});
+  if(CONFIG.FORM_ENDPOINT){ try{ fetch(CONFIG.FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({nombre:n,whatsapp:w,correo:m,club:c,producto:'Plan Profesional',fecha:new Date().toISOString()})}); }catch(e){} }
+  go(2);
+});
+$('b2').addEventListener('click', function(){ go(3); });
+$('b3').addEventListener('click', function(){ go(4); });
+renderPlan();
+
+/* ===== Mi documento ===== */
+$('b4').addEventListener('click', function(){
+  var m=$('q-mail').value.trim(), box=$('m4'); box.style.display='block'; box.className='msg';
+  if(!/^\S+@\S+\.\S+$/.test(m)){ box.textContent='Escribe el correo con el que hiciste tu solicitud.'; return; }
+  if(!CONFIG.DOWNLOAD_ENDPOINT){
+    box.innerHTML='Tu solicitud está en proceso. Si pasaron más de 24 horas, <a href="'+CONFIG.WHATSAPP_LINK+'" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.'; return;
+  }
+  box.textContent='Consultando…';
+  fetch(CONFIG.DOWNLOAD_ENDPOINT+'?correo='+encodeURIComponent(m)).then(function(r){ return r.json(); }).then(function(d){
+    if(d && d.estado==='listo' && d.url){
+      box.className='msg ok'; box.innerHTML='Tu documento está listo. <a href="'+String(d.url).replace(/"/g,'')+'" target="_blank" rel="noopener"><strong>Descargar mi documento</strong></a>';
+    }else{ box.textContent='Aún estamos preparando tu documento. Vuelve a consultar dentro de las 24 horas siguientes a tu pago.'; }
+  }).catch(function(){ box.textContent='No pudimos consultar ahora. Intenta de nuevo o escríbenos por WhatsApp.'; });
+});
+
+/* ===== Analítica: solo se carga si llenas los IDs ===== */
+if(CONFIG.META_PIXEL_ID){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', CONFIG.META_PIXEL_ID); fbq('track','PageView');
+}
+if(CONFIG.GA_ID){
+  var g=document.createElement('script'); g.async=true; g.src='https://www.googletagmanager.com/gtag/js?id='+CONFIG.GA_ID; document.head.appendChild(g);
+  window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments)}; gtag('js',new Date()); gtag('config',CONFIG.GA_ID);
+}
+show(PAGE_NAME);
+</script>
+</body>
+</html>
